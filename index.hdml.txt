@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uniontown Temperature</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #temperature {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Uniontown Temperature</h1>
+        <div id="temperature">Loading...</div>
+    </div>
+
+    <script>
+        // OpenWeatherMap API endpoint and your API key
+        const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=Uniontown&units=imperial&appid=33aa2e6246027caa82b899cf8a0223a3';
+
+        // Fetch temperature data from OpenWeatherMap API
+        fetch(apiUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const temperature = data.main.temp;
+                document.getElementById('temperature').textContent = `Temperature in Uniontown: ${temperature}°F`;
+            })
+            .catch(error => {
+                console.error('There was a problem fetching the temperature:', error);
+                document.getElementById('temperature').textContent = 'Unable to fetch temperature';
+            });
+    </script>
+</body>
+</html>
