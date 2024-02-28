@@ -26,32 +26,13 @@
 <body>
     <div class="container">
         <h1>Uniontown Temperature!</h1>
-        <div id="temperature">Loading...</div>
         <div id="temp-Paris">Loading temperature...</div>
+        <div id="temp-Uniontown">Loading temperature...</div>
+        
 
     </div>
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScrIrl8BXJTuuZoYomeHvDqHVX4rqrX0-k4lMVhQBk-wEHspw/viewform?embedded=true" width="640" height="552" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-<!--     <script>
-        // OpenWeatherMap API endpoint and your API key
-        const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=Uniontown&units=imperial&appid=33aa2e6246027caa82b899cf8a0223a3';
 
-        // Fetch temperature data from OpenWeatherMap API
-        fetch(apiUrl)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                const temperature = data.main.temp;
-                document.getElementById('temperature').textContent = `Temperature in Uniontown: ${temperature}°F`;
-            })
-            .catch(error => {
-                console.error('There was a problem fetching the temperature:', error);
-                document.getElementById('temperature').textContent = 'Unable to fetch temperature';
-            });
-    </script> -->
     <script>
     // Function to fetch temperature for a given city
     function fetchTemperatureForCity(cityName) {
@@ -77,6 +58,8 @@
     }
 
     fetchTemperatureForCity('Paris');
+    fetchTemperatureForCity('Uniontown');
+
 </script>
 
 
